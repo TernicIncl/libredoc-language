@@ -1,0 +1,40 @@
+# LDOC - LibreGrad Documentation Compiler
+
+LDOC is a simple, lightweight documentation format and compiler designed for easy writing and publishing of technical documentation with extended markdown-like syntax and custom commands.
+
+---
+
+## Features
+
+- Markdown-style headings (`#`, `##`, `###`)
+- Inline code and fenced code blocks with syntax highlighting
+- Special commands:
+  - `@include PATH` — recursively include external files
+  - `@var NAME=VALUE` — define variables for substitution
+  - `@if VAR=VALUE ... @endif` — conditional content blocks
+  - `@command: YOUR COMMAND` — render shell/console commands as highlighted code
+  - `@codeblock LANG NAME ... @endcodeblock` — reusable named code blocks
+  - `@usecode NAME` — insert named code blocks
+  - `@image: URL "ALT TEXT"` — embed images
+  - `@video: URL` — embed videos
+  - `@note:`, `@warning:`, `@info:`, `@tip:`, `@todo:` — special stylized blocks
+  - `@badge: TYPE|TEXT|CLASS` — badges for highlights
+  - `@table: ... @endtable` — markdown-style tables
+
+---
+
+## Installation
+
+Clone the repository and make sure you have Python 3 installed:
+
+```bash
+git clone https://github.com/ternicincl/ldoc.git
+cd ldoc
+```
+Compile a single .ldoc file:
+
+./ldoc.py build examples/sample.ldoc -o build
+
+Compile all .ldoc files in a directory:
+
+./ldoc.py build docs/ -o build

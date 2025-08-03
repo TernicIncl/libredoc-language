@@ -1,0 +1,43 @@
+@title: LibreGrad - Getting Started
+@toc
+
+# LibreGrad OS Documentation
+
+Welcome to **LibreGrad**!  
+This guide helps you set up and build the kernel from scratch.
+
+---
+
+## Prerequisites
+
+@note: Ensure you have the following installed: `gcc`, `make`, `libelf-dev`.
+
+- Linux build environment
+- Docker (optional)
+- QEMU for virtualization
+
+---
+
+## Building the Kernel
+
+You can configure and build the kernel like this:
+
+```shell
+make menuconfig
+make bzImage
+```
+
+@alert warning
+This is a **warning** alert block with *important* info.
+@endalert
+
+- [ ] Incomplete task
+- [x] Completed task
+- Normal list item
+
+
+
+@command: sudo make clean
+
+Build Status: @badge: Build|Passing|success
+License: @badge: License|MIT|warning

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LibreGrad - Getting Started</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px auto;
+        max-width: 900px;
+        line-height: 1.6;
+        color: #222;
+    }
+    h1,h2,h3 {
+        color: #333;
+        margin-top: 30px;
+    }
+    h1 { font-size: 2em; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    h2 { font-size: 1.5em; margin-top: 20px; }
+    h3 { font-size: 1.2em; }
+
+    p { margin: 15px 0; }
+
+    pre {
+        background: #f4f4f4;
+        padding: 12px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9em;
+    }
+    code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+    }
+    .command {
+        background: #282c34;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+    }
+
+    /* Notes and Alerts */
+    .note, .warning, .info, .tip, .todo {
+        padding: 12px;
+        margin: 15px 0;
+        border-left: 6px solid;
+        border-radius: 4px;
+    }
+    .note { background: #fff8e1; border-color: #ffc107; }
+    .warning { background: #f8d7da; border-color: #dc3545; }
+    .info { background: #d1ecf1; border-color: #0dcaf0; }
+    .tip { background: #d4edda; border-color: #198754; }
+    .todo { background: #fefefe; border-color: #6c757d; font-style: italic; }
+
+    /* Table of Contents */
+    .toc {
+        background: #f8f9fa;
+        padding: 15px;
+        border: 1px solid #ccc;
+        margin-bottom: 25px;
+        border-radius: 4px;
+    }
+    .toc h3 {
+        margin-top: 0;
+        font-size: 1.1em;
+    }
+    .toc ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .toc li {
+        margin: 6px 0;
+    }
+    .level-2 { margin-left: 15px; }
+    .level-3 { margin-left: 30px; }
+
+    /* Lists */
+    ul {
+        margin-left: 20px;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 6px;
+    }
+
+    /* Links */
+    a {
+        color: #0366d6;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Error for missing includes */
+    .error {
+        color: #dc3545;
+        font-weight: bold;
+        background: #f8d7da;
+        padding: 8px;
+        border-radius: 4px;
+    }
+
+    /* Badges */
+    .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .badge.success { background: #28a745; color: #fff; }
+    .badge.warning { background: #ffc107; color: #000; }
+    .badge.error { background: #dc3545; color: #fff; }
+    .badge.info { background: #17a2b8; color: #fff; }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        text-align: left;
+    }
+    th {
+        background: #f4f4f4;
+    }
+
+    /* Media */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px 0;
+    }
+    iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        margin: 15px 0;
+    }
+
+    .alert {
+        padding: 15px;
+        margin: 20px 0;
+        border-left: 6px solid;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+    .alert.info { background-color: #d1ecf1; border-color: #0dcaf0; color: #0c5460; }
+    .alert.warning { background-color: #fff3cd; border-color: #ffc107; color: #856404; }
+    .alert.error { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+    .alert.success { background-color: #d4edda; border-color: #28a745; color: #155724; }
+
+    /* Task Lists */
+    ul {
+        margin-left: 20px;
+        padding-left: 20px;
+    }
+    .task-item {
+        list-style: none;
+        margin-bottom: 8px;
+        font-weight: normal;
+    }
+    .task-item input[type="checkbox"] {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+
+</style>
+</head>
+<body>
+<p>
+<nav class='toc'><h3>Table of Contents</h3><ul><li class='level-1'><a href='#libregrad-os-documentation'>LibreGrad OS Documentation</a></li><li class='level-2'><a href='#prerequisites'>Prerequisites</a></li><li class='level-2'><a href='#building-the-kernel'>Building the Kernel</a></li></ul></nav></p><p><h1 id="libregrad-os-documentation">LibreGrad OS Documentation</h1></p><p>Welcome to <strong>LibreGrad</strong>!  
+This guide helps you set up and build the kernel from scratch.</p><p><hr></p><p><h2 id="prerequisites">Prerequisites</h2></p><p><div class="note">Ensure you have the following installed: <code>gcc</code>, <code>make</code>, <code>libelf-dev</code>.</div></p><p><ul><li>Linux build environment</li></ul>
+<ul><li>Docker (optional)</li></ul>
+<ul><li>QEMU for virtualization</li></ul></p><p><hr></p><p><h2 id="building-the-kernel">Building the Kernel</h2></p><p>You can configure and build the kernel like this:</p><p><pre><code class="shell">make menuconfig
+make bzImage
+</code></pre></p><p><div class="alert warning">This is a <strong>warning</strong> alert block with <em>important</em> info.</div></p><p><li class="task-item"><input type="checkbox" disabled> Incomplete task</li>
+<li class="task-item"><input type="checkbox" disabled checked> Completed task</li>
+<ul><li>Normal list item</li></ul></p><p><pre><code class="command">sudo make clean</code></pre></p><p>Build Status: <span class="badge success">Build: Passing</span>
+License: <span class="badge warning">License: MIT</span></p>
+</body>
+</html>
