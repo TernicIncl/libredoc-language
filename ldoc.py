@@ -121,8 +121,17 @@ def parse_ldoc(text, base_dir=None, vars_dict=None, platform=None):
     # Wrap consecutive <li> blocks with <ul>
     text = re.sub(r'(<li>.*?</li>)', r'<ul>\1</ul>', text, flags=re.S)
 
-    # Links
+    # Links (markdown style)
     text = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', text)
+
+    # Custom @link PAGE "TEXT" syntax for multi-page linking
+    def link_replacer(match):
+        page = match.group(1).strip()
+        link_text = match.group(2).strip()
+        href = f"{page}.html"
+        return f'<a href="{href}">{link_text}</a>'
+
+    text = re.sub(r'@link (\S+) "(.*?)"', link_replacer, text)
 
     # -------------------------------
     # @image and @video
@@ -173,6 +182,7 @@ def parse_ldoc(text, base_dir=None, vars_dict=None, platform=None):
     text = f"<p>{text}</p>"
 
     return text, title
+
 
 
 def build_html(content, title="Documentation"):
