@@ -185,6 +185,7 @@ def parse_ldoc(text, base_dir=None, vars_dict=None, platform=None):
 
 
 
+
 def build_html(content, title="Documentation"):
     with open(TEMPLATE_PATH) as f:
         template = f.read()
